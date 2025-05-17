@@ -2,6 +2,9 @@ package com.Microservicio.GestionDeCursos.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,9 +38,11 @@ public class Curso {
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")
+    @JsonBackReference
     private Contenido contenido;
 
-    @OneToMany(mappedBy = "cursos", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cursos", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Inscripciones> inscripciones;
 
 }

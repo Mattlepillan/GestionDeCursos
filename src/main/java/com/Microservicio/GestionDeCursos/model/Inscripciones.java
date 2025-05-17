@@ -2,6 +2,8 @@ package com.Microservicio.GestionDeCursos.model;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,6 +35,7 @@ public class Inscripciones {
 
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")
+    @JsonBackReference
     private Curso cursos;
 
 }
