@@ -34,7 +34,7 @@ public class Inscripciones {
     private LocalDate fechaInscripcion;
 
     @ManyToOne
-    @JoinColumn(referencedColumnName = "id")
+    @JoinColumn(referencedColumnName = "CursoId")
     @JsonBackReference
     private Curso cursos;
 

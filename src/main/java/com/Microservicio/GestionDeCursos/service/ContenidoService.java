@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Microservicio.GestionDeCursos.model.Contenido;
+import com.Microservicio.GestionDeCursos.model.Curso;
 import com.Microservicio.GestionDeCursos.repository.ContenidoRepository;
 
 @Service
@@ -23,4 +24,11 @@ public class ContenidoService {
 
     }
     
+    public Contenido findById(int id){
+        return contenidoRepository.findById(id);
+    }
+
+     public Contenido cursoxId(int id){
+        return contenidoRepository.getReferenceById(id);
+    }
 }
