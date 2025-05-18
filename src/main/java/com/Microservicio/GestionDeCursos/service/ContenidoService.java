@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Microservicio.GestionDeCursos.model.Contenido;
-import com.Microservicio.GestionDeCursos.model.Curso;
 import com.Microservicio.GestionDeCursos.repository.ContenidoRepository;
 
 @Service
