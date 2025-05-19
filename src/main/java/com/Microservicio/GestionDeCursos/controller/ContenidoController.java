@@ -69,7 +69,6 @@ public class ContenidoController {
         }
         else
         {
-            buscado.setId(contenidoMod.getId());
             buscado.setNombre(contenidoMod.getNombre());
             buscado.setRamo(contenidoMod.getRamo());
             return new ResponseEntity<>(contenidoService.save(contenidoMod),HttpStatus.OK);
