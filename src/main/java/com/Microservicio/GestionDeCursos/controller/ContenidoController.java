@@ -13,8 +13,11 @@ import com.Microservicio.GestionDeCursos.model.Curso;
 import com.Microservicio.GestionDeCursos.service.ContenidoService;
 import com.Microservicio.GestionDeCursos.service.CursoService;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
@@ -55,6 +58,36 @@ public class ContenidoController {
         
 
 
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Contenido> putCurso(@PathVariable int id, @RequestBody Contenido contenidoMod){
+        Contenido buscado = contenidoService.findById(contenidoMod.getId());
+        if(buscado == null)
+        {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        else
+        {
+            buscado.setId(contenidoMod.getId());
+            buscado.setNombre(contenidoMod.getNombre());
+            buscado.setRamo(contenidoMod.getRamo());
+            return new ResponseEntity<>(contenidoService.save(contenidoMod),HttpStatus.OK);
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Contenido> deleteContenido(@PathVariable int id, @RequestBody Contenido contenido){
+        Contenido buscado = contenidoService.findById(contenido.getId());
+        if(buscado == null)
+        {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        else
+        {
+            contenidoService.delete(contenido);
+            return new ResponseEntity<>( HttpStatus.OK);
+        }
     }
     
 }

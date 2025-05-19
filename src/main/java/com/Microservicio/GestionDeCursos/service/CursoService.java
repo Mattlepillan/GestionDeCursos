@@ -28,4 +28,10 @@ public class CursoService {
     public Curso cursoxId(int id){
         return cursoRepository.getReferenceById(id);
     }
+
+    public void delete(Curso curso){
+        cursoRepository.delete(curso);
+    }
+
+    
 }
