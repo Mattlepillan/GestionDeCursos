@@ -30,4 +30,8 @@ public class ContenidoService {
      public Contenido cursoxId(int id){
         return contenidoRepository.getReferenceById(id);
     }
+
+    public void delete(Contenido contenido){
+        contenidoRepository.delete(contenido);
+    }
 }

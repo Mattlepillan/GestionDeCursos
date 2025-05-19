@@ -18,5 +18,7 @@ public interface InscripcionRepository extends JpaRepository<Inscripcion, Intege
     Inscripcion findById(int id);
 
     Inscripcion getReferenceById(Integer id); 
+
+    void delete(Inscripcion inscripcion);
     
 }
