@@ -28,4 +28,8 @@ public class InscripcionService {
     public Inscripcion cursoxId(int id){
         return inscripcionRepository.getReferenceById(id);
     }
+
+     public void delete(Inscripcion inscripcion){
+        inscripcionRepository.delete(inscripcion);
+    }
 }
