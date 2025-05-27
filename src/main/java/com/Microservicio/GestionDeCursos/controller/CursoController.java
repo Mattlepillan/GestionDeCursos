@@ -64,7 +64,7 @@ public class CursoController {
     }
 
     @DeleteMapping("/{cursoId}")
-    public ResponseEntity<Curso> deleteCurso(@PathVariable int cursoId, @RequestBody Curso cursoKill){
+    public ResponseEntity<Curso> deleteCurso(@PathVariable int cursoId, Curso cursoKill){
         Curso buscado = cursoService.findById(cursoKill.getCursoId());
         if(buscado == null)
         {

@@ -58,7 +58,7 @@ public class InscripcionController {
     }
     
     @DeleteMapping("/{id}")
-    public ResponseEntity<Curso> deleteInscripcion(@PathVariable int id, @RequestBody Inscripcion inscripcion){
+    public ResponseEntity<Curso> deleteInscripcion(@PathVariable int id, Inscripcion inscripcion){
         Inscripcion buscado = inscripcionService.findById(inscripcion.getId());
         if(buscado == null)
         {
