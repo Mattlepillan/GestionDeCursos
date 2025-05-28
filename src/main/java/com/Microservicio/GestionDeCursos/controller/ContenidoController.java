@@ -76,7 +76,7 @@ public class ContenidoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Contenido> deleteContenido(@PathVariable int id, @RequestBody Contenido contenido){
+    public ResponseEntity<Contenido> deleteContenido(@PathVariable int id, Contenido contenido){
         Contenido buscado = contenidoService.findById(contenido.getId());
         if(buscado == null)
         {
